@@ -72,7 +72,7 @@ que ninguna línea de código puede hacer:
 | # | Qué falta exactamente | De quién depende |
 |---|---|---|
 | R1 y R2 | **Asignar a una persona** la revisión semanal del extracto. El procedimiento ya está escrito en `PROTOCOLO-INGRESOS.md`; lo que falta es un nombre | Tesorería |
-| R7 | Firmar los dos contratos de encargado del tratamiento con IONOS y Railway | Protección de datos |
+| R7 | Contratos de encargado del tratamiento con IONOS, Google y Railway. **Con Gmail gratuito no existe: hace falta Workspace** | Protección de datos |
 | R6 | Poner en el calendario la conmutación a régimen electoral | Web |
 
 Con la revisión de ingresos asignada, R1 y R2 bajan de 12 a 8. Con los contratos firmados, R7 baja
@@ -369,7 +369,7 @@ Aquí conviven dos cosas sensibles: una lista de afinidad política y una tabla 
 
 | Opción | Coste | Efectividad | ¿Hecho? |
 |---|---|---|---|
-| **Contrato de encargado del tratamiento con IONOS y con Railway** (art. 28) | ~2 h | Obligatorio, no opcional | ⬜ |
+| **Contrato de encargado del tratamiento con IONOS, Google y Railway** (art. 28). Ojo: Gmail gratuito no ofrece ninguno | ~2 h | Obligatorio, no opcional | ⬜ |
 | Rotación del token de administración tras la campaña | Nulo | Media | ⬜ |
 | Copia de seguridad cifrada y probada de la tabla de donaciones | ~2 h | Alta: aquí borrar de más es incumplir | ⬜ |
 | Procedimiento escrito de notificación en 72 h | ~1 h | Alta si pasa | ⬜ |
@@ -573,7 +573,7 @@ certificado no hay deducción, en vez de dar la deducción por hecha.
 1. **Poner un nombre** a la revisión semanal del extracto. El procedimiento está escrito paso a paso
    en `PROTOCOLO-INGRESOS.md`, con qué mirar, qué devolver y en qué plazo. Falta quién lo hace.
    Cierra la mitad humana de R1 y R2.
-2. **Firmar los dos contratos** de encargado del tratamiento (art. 28 RGPD) con IONOS y con Railway.
+2. **Firmar los contratos** de encargado del tratamiento (art. 28 RGPD) con IONOS, Google y Railway. El de Google solo existe en Workspace: con una cuenta de Gmail gratuita este punto queda sin cubrir.
    Los dos publican su contrato tipo; es aceptarlo desde el panel de cada uno y guardar copia.
 3. **Meter en el calendario** la conmutación a régimen electoral, para el día de la convocatoria.
 4. **Configurar el despliegue**: variables de entorno en Railway y buzón de envío creado en IONOS.

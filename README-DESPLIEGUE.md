@@ -38,8 +38,8 @@ Punto de partida: `cp .env.example .env`.
 | `URL_BASE` | ✅ | Dirección pública del sitio, sin barra final. Base de los enlaces de los correos. |
 | `SMTP_HOST` | | Servidor de correo saliente. Por defecto `smtp.ionos.es`. |
 | `SMTP_PUERTO` | | `587` (STARTTLS) por defecto; `465` para TLS directo. |
-| `SMTP_USUARIO` | ✅ (o consola) | Buzón **de verdad, con contraseña** desde el que se envía. Un alias que solo reenvía no vale: no tiene credenciales. |
-| `SMTP_CLAVE` | ✅ (o consola) | Contraseña de ese buzón. |
+| `SMTP_USUARIO` | ✅ (o consola) | Cuenta **de verdad, con contraseña** desde la que se envía. Un alias que solo reenvía no vale: no tiene credenciales. Aquí, la cuenta de Gmail. |
+| `SMTP_CLAVE` | ✅ (o consola) | **Contraseña de aplicación** de Google, no la del correo. Exige verificación en dos pasos en la cuenta. |
 | `REMITENTE` | | Dirección **de un dominio propio verificado**. Por defecto `no-responder@por-aguilas.es`. **No puede ser de Gmail, Outlook ni similar**: su política DMARC haría que los correos de confirmación se rechacen o acaben en spam, y sin confirmar no hay alta. El arranque lo rechaza. |
 | `REMITENTE_NOMBRE` | | Por defecto `Por Águilas`. |
 | `RESPUESTA_A` | | Buzón que lee alguien de verdad. Por defecto `admin@por-aguilas.es`. |
@@ -129,7 +129,7 @@ detector sigue vivo.
 |---|---|---|
 | 1 | **Contrato de encargado del tratamiento (art. 28 RGPD) con IONOS**, que aloja el correo del dominio | Protección de datos |
 | 2 | **Contrato de encargado del tratamiento (art. 28 RGPD) con Railway** (EE. UU., servidores en la UE, cláusulas contractuales tipo) | Protección de datos |
-| 3 | Crear en IONOS el buzón desde el que se envía (`no-responder@por-aguilas.es`) y poner su contraseña en `SMTP_CLAVE` | Web |
+| 3 | Activar la verificación en dos pasos en la cuenta de Google, generar una contraseña de aplicación y ponerla en `SMTP_CLAVE` | Web |
 | 4 | Confirmar que `admin@por-aguilas.es` existe y que lo lee alguien | Secretaría |
 | 5 | **Asignar quién revisa cada ingreso contra el extracto**, semanalmente. El procedimiento está escrito en `PROTOCOLO-INGRESOS.md`; falta el nombre (riesgos R1, R2 y R11) | Tesorería |
 | 6 | Confirmar si la cuenta es de uso exclusivo de donaciones y está comunicada al Tribunal de Cuentas (art. 8 LO 8/2007) | Federación |

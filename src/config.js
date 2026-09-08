@@ -646,38 +646,53 @@ function revisarPuestaEnMarcha() {
     if (!CONFIG.smtpHost) problemas.push("Falta SMTP_HOST.");
   }
 
-  // IONOS —y casi cualquier SMTP autenticado— exige que el From sea el buzón
-  // con el que te has autenticado, o rechaza el envío con un 550. Es un fallo
-  // que solo se ve cuando ya no llega ningún correo, así que se avisa antes.
+  // Casi cualquier SMTP autenticado exige que el From sea la cuenta con la que
+  // te has autenticado, y rechaza el resto con un 550. La excepción es cuando el
+  // proveedor tiene verificada esa otra dirección como alias de envío —el
+  // "Enviar como" de Gmail—, que es un montaje legítimo y frecuente. Por eso
+  // esto avisa y no bloquea: no se puede distinguir un caso del otro desde aquí.
   if (CONFIG.smtpUsuario && CONFIG.remitente && CONFIG.smtpUsuario !== CONFIG.remitente) {
     avisos.push(
       `REMITENTE (${CONFIG.remitente}) no coincide con SMTP_USUARIO (${CONFIG.smtpUsuario}). ` +
-        "La mayoría de servidores SMTP rechazan enviar en nombre de otra dirección: si los " +
-        "correos no salen, esto es lo primero que hay que mirar."
+        "Correcto solo si el proveedor tiene verificado el remitente como alias de envío. " +
+        "Si no llega ningún correo, esto es lo primero que hay que mirar."
     );
   }
 
-  // El remitente NO puede ser una dirección de Gmail, Hotmail, Yahoo y compañía.
+  // El remitente en un dominio gratuito: prohibido, salvo un caso concreto.
   //
-  // Esos dominios publican una política DMARC que dice, en esencia, "solo yo
-  // envío en mi nombre". Si el servidor manda un correo poniendo como remitente
-  // una dirección @gmail.com, la firma no alinea con el dominio y el correo lo
-  // rechazan o lo mandan a spam los propios Gmail, Outlook y Yahoo, que es
-  // donde está prácticamente toda la lista. No es una recomendación de
-  // entregabilidad: es que los correos de confirmación no llegan, y sin
-  // confirmar no hay alta.
+  // Lo que rompe el correo no es la dirección en sí, es la falta de alineación.
+  // Si un tercero —una plataforma de envío, o el SMTP de otro dominio— manda un
+  // correo poniendo como remitente una dirección @gmail.com, ni el SPF ni la
+  // firma DKIM alinean con gmail.com, DMARC falla y lo tiran a spam los propios
+  // Gmail, Outlook y Yahoo, que es donde está prácticamente toda la lista. No
+  // es una cuestión de entregabilidad fina: es que los correos de confirmación
+  // no llegan, y sin confirmar no hay alta.
   //
-  // La dirección de contacto sí puede ser de Gmail —a esa escribe la gente, no
-  // el servidor— y de hecho lo es. Lo que tiene que ir en un dominio propio
-  // cubierto por su SPF es el REMITENTE.
-  const dominioRemitente = CONFIG.remitente.split("@")[1] || "";
+  // La excepción es autenticarse contra el propio proveedor de esa dirección.
+  // Enviando desde poraguilas@gmail.com a través de smtp.gmail.com, es Google
+  // quien firma con gmail.com: SPF y DKIM alinean y DMARC pasa. Es lo que se
+  // hace aquí, porque por-aguilas.es no tiene buzón propio —admin@ es solo una
+  // redirección— y una redirección no puede autenticarse en ningún SMTP.
+  //
+  // La dirección de contacto sí puede ser de Gmail sin más: a esa escribe la
+  // gente, no el servidor.
+  const dominioRemitente = (CONFIG.remitente.split("@")[1] || "").toLowerCase();
   const GRATUITOS = ["gmail.com", "googlemail.com", "hotmail.com", "outlook.com", "live.com", "yahoo.com", "yahoo.es", "icloud.com", "protonmail.com", "gmx.es"];
-  if (GRATUITOS.includes(dominioRemitente.toLowerCase())) {
-    problemas.push(
-      `REMITENTE no puede ser una dirección de ${dominioRemitente}: su política DMARC hará que ` +
-        "los correos de confirmación se rechacen o acaben en spam, y sin confirmar no hay alta. " +
-        "Tiene que ser un buzón del dominio propio, el mismo con el que se autentica el SMTP."
-    );
+  if (GRATUITOS.includes(dominioRemitente)) {
+    if (CONFIG.smtpUsuario && CONFIG.smtpUsuario === CONFIG.remitente) {
+      avisos.push(
+        `REMITENTE es una dirección de ${dominioRemitente}. Se admite porque el SMTP se autentica ` +
+          "con esa misma cuenta, así que la firma alinea y DMARC pasa. Aun así, los correos de la " +
+          "candidatura no salen del dominio propio: con un buzón en por-aguilas.es se arreglaría."
+      );
+    } else {
+      problemas.push(
+        `REMITENTE no puede ser una dirección de ${dominioRemitente} enviándola desde otra cuenta: ` +
+          "la firma no alineará, los correos de confirmación acabarán en spam y sin confirmar no " +
+          "hay alta. O el remitente es un buzón del dominio propio, o coincide con SMTP_USUARIO."
+      );
+    }
   }
   if (CONFIG.correoEnConsola) {
     avisos.push("CORREO_EN_CONSOLA=1: los correos se imprimen, no se envían. Solo para local.");
