@@ -78,7 +78,7 @@ function plantilla({ titulo, parrafos, boton, urlBaja }) {
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border:2px solid #141414">
     <tr><td style="border-top:8px solid #0E7A5F;padding:28px 28px 0">
       <p style="margin:0;font-family:Georgia,serif;font-size:22px;font-weight:700;letter-spacing:-.03em;color:#141414">
-        <span style="color:#8229A7">Por</span> <span style="color:#0B7699">Águilas</span>
+        <span style="color:#8229A7">Por</span> <span style="color:#3FCB9E">Águilas</span>
       </p>
       <p style="margin:6px 0 0;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#6F6867">Municipales 2027</p>
     </td></tr>
@@ -89,7 +89,7 @@ function plantilla({ titulo, parrafos, boton, urlBaja }) {
     </td></tr>
     <tr><td style="padding:20px 28px 26px;border-top:1px solid #D5D0CE">
       <p style="margin:0;font-size:12.5px;line-height:1.6;color:#6F6867">
-        Recibes esto porque alguien pidió apuntarse a Por <span style="color:#0B7699">Águilas</span> con esta dirección.
+        Recibes esto porque alguien pidió apuntarse a Por Águilas con esta dirección.
         <a href="${urlBaja}" style="color:#0A5C47">Bórrame de la lista</a> ·
         <a href="${CONFIG.urlBase}/legal/privacidad" style="color:#0A5C47">Política de privacidad</a>
       </p>
@@ -161,7 +161,7 @@ function confirmacion(para, tokenConf, tokenBaja) {
     titulo: "Un clic y estás dentro",
     urlBaja: urlBajaDe(tokenBaja),
     parrafos: [
-      "Alguien ha pedido apuntarse a la candidatura <strong>Por <span style='color:#0B7699'>Águilas</span></strong> con esta dirección de correo. Si has sido tú, confírmalo aquí abajo.",
+      "Alguien ha pedido apuntarse a la candidatura <strong>Por Águilas</strong> con esta dirección de correo. Si has sido tú, confírmalo aquí abajo.",
       "Hasta que no confirmes no guardamos tu alta. Y si no has sido tú, no hagas nada: el enlace caduca en 48 horas y todo se borra solo.",
     ],
     boton: { texto: "Sí, quiero apuntarme", url },
@@ -193,7 +193,7 @@ function yaEstabas(para, tokenBaja) {
     titulo: "Ya estabas dentro",
     urlBaja: baja,
     parrafos: [
-      "Acabas de rellenar el formulario de Por <span style='color:#0B7699'>Águilas</span>, pero esta dirección ya estaba confirmada. No hace falta que hagas nada: sigues en la lista.",
+      "Acabas de rellenar el formulario de Por Águilas, pero esta dirección ya estaba confirmada. No hace falta que hagas nada: sigues en la lista.",
       "Si lo que querías era justo lo contrario, aquí tienes el enlace para borrarte. Se borra todo, sin preguntas.",
     ],
     boton: { texto: "Bórrame de la lista", url: baja },
@@ -218,7 +218,7 @@ function enlaceBorrado(para, tokenBaja) {
     titulo: "Confirma que quieres borrarte",
     urlBaja: baja,
     parrafos: [
-      "Has pedido que borremos tus datos de la lista de Por <span style='color:#0B7699'>Águilas</span>. Confírmalo aquí y desaparece todo: el correo, el nombre, lo que nos contaras y la prueba de tu consentimiento.",
+      "Has pedido que borremos tus datos de la lista de Por Águilas. Confírmalo aquí y desaparece todo: el correo, el nombre, lo que nos contaras y la prueba de tu consentimiento.",
       "Te lo pedimos por correo para asegurarnos de que eres tú quien lo pide y no un tercero. <strong>El borrado no se puede deshacer.</strong>",
     ],
     boton: { texto: "Sí, bórralo todo", url: baja },

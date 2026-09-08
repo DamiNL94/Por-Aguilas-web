@@ -70,23 +70,6 @@ const escapar = (v) =>
 
 const escaparAttr = (v) => escapar(v).replace(/"/g, "&quot;");
 
-// El nombre del pueblo va en turquesa allá donde se escriba, también dentro de
-// los textos del programa, las fuentes y las notas de prensa, que llegan aquí
-// interpolados. En el marcado de index.html el color va puesto a mano con la
-// clase; aquí se le pone a lo que viene de los datos, que no puede traer HTML
-// porque se escapa. Las dos clases están definidas en el <style> de index.html.
-//
-// Solo la palabra suelta: «Águilas Sur» o «Murcia-Lorca-Águilas» se colorean
-// igual, pero una palabra que la contenga dentro, no.
-const NOMBRE = /(?<!\p{L})Águilas(?!\p{L})/gu;
-
-// Etiquetas cuyo contenido es texto y nada más: meterles un <span> dentro
-// sería marcado inválido.
-const SIN_MARCADO = new Set(["title", "option", "textarea", "script", "style"]);
-
-const resaltarNombre = (html) =>
-  html.replace(NOMBRE, '<span class="pa-ag">Águilas</span>');
-
 // --- Análisis ----------------------------------------------------------------
 
 function analizar(html) {
@@ -173,18 +156,14 @@ function compilar(plantilla, vals, opciones = {}) {
 
   const claseAuto = () => `pa-g${(contador++).toString(36)}`;
 
-  function pintarHijos(nodos, ambito, buf, padre) {
-    for (const n of nodos) pintar(n, ambito, buf, padre);
+  function pintarHijos(nodos, ambito, buf) {
+    for (const n of nodos) pintar(n, ambito, buf);
   }
 
-  function pintar(nodo, ambito, buf, padre) {
+  function pintar(nodo, ambito, buf) {
     if (nodo.tipo === "texto") {
-      const marcable = !SIN_MARCADO.has(padre);
       buf.push(
-        nodo.valor.replace(/\{\{([^}]+)\}\}/g, (_, r) => {
-          const t = escapar(resolver(ambito, r));
-          return marcable ? resaltarNombre(t) : t;
-        })
+        nodo.valor.replace(/\{\{([^}]+)\}\}/g, (_, r) => escapar(resolver(ambito, r)))
       );
       return;
     }
@@ -201,7 +180,7 @@ function compilar(plantilla, vals, opciones = {}) {
         // Inerte: no se pinta, pero queda en el documento para que app.js lo
         // clone cuando la condición se cumpla.
         const interno = [];
-        pintarHijos(nodo.hijos, ambito, interno, padre);
+        pintarHijos(nodo.hijos, ambito, interno);
         buf.push(`<template data-pa-if="${escaparAttr(nombre)}">${interno.join("")}</template>`);
         return;
       }
@@ -213,10 +192,10 @@ function compilar(plantilla, vals, opciones = {}) {
             hijo.attrs = [...hijo.attrs, ["class", clase]];
           }
         }
-        pintarHijos(nodo.hijos, ambito, buf, padre);
+        pintarHijos(nodo.hijos, ambito, buf);
         return;
       }
-      if (valorAttr(bruto, ambito)) pintarHijos(nodo.hijos, ambito, buf, padre);
+      if (valorAttr(bruto, ambito)) pintarHijos(nodo.hijos, ambito, buf);
       return;
     }
 
@@ -227,7 +206,7 @@ function compilar(plantilla, vals, opciones = {}) {
         throw new Error(`sc-for sobre algo que no es una lista: ${JSON.stringify(lista)}`);
       }
       for (const elemento of lista) {
-        pintarHijos(nodo.hijos, { ...ambito, [alias]: elemento }, buf, padre);
+        pintarHijos(nodo.hijos, { ...ambito, [alias]: elemento }, buf);
       }
       return;
     }
@@ -235,7 +214,7 @@ function compilar(plantilla, vals, opciones = {}) {
     // <helmet> lleva los <style> globales: se recogen aparte, para la cabecera.
     if (et === "helmet" || et === "sc-helmet") {
       const interno = [];
-      pintarHijos(nodo.hijos, ambito, interno, et);
+      pintarHijos(nodo.hijos, ambito, interno);
       (opciones.helmet || []).push(interno.join(""));
       return;
     }
@@ -289,7 +268,7 @@ function compilar(plantilla, vals, opciones = {}) {
       return;
     }
     buf.push(`<${et}${texto}>`);
-    pintarHijos(nodo.hijos, ambito, buf, et);
+    pintarHijos(nodo.hijos, ambito, buf);
     buf.push(`</${et}>`);
   }
 

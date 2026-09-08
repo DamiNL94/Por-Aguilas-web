@@ -9,14 +9,6 @@ a:hover{color:#0E7A5F}
 @keyframes pa-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
-/* El nombre del pueblo. Es la única palabra de la web que lleva color propio:
-   donde se escribe «Águilas» se escribe en turquesa, el mismo del agua del
-   logotipo. Sobre fondo claro va la versión oscura (#0B7699, 5,2:1 sobre
-   blanco, por encima del 4,5:1 que exige la AA); sobre fondo oscuro, la clara.
-   Hereda el peso y la inclinación del texto que la rodea: señala, no grita. */
-.pa-ag{color:#0B7699;font-weight:inherit;font-style:inherit}
-.pa-ag-cl{color:#42C7DE;font-weight:inherit;font-style:inherit}
-
 /* --- Formularios de Súmate y de donaciones ---------------------------------
    El resto de la página va con estilos en línea, nodo a nodo. Aquí no: son dos
    formularios con más de treinta campos, etiquetas, casillas y mensajes de
@@ -26,7 +18,7 @@ a:hover{color:#0E7A5F}
 
    Contrastes comprobados sobre blanco: negro #141414 18,4:1 · verde #0E7A5F
    5,3:1 · gris de etiqueta #403B3A 11,0:1 · gris opcional #6F6867 5,4:1 ·
-   azul marino #16456E 10,0:1. Todos por encima del 4,5:1 que exige la AA. */
+   bermellón #D9351F 4,7:1. Todos por encima del 4,5:1 que exige la AA. */
 .pa-f{display:grid;gap:18px;max-width:560px}
 .pa-c{display:flex;flex-direction:column;gap:7px}
 .pa-fila{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:16px}
@@ -35,7 +27,7 @@ a:hover{color:#0E7A5F}
 .pa-in{font:400 16px/1.4 'Public Sans',sans-serif;color:#141414;background:#fff;border:2px solid #D5D0CE;padding:13px 14px;min-height:50px;width:100%;border-radius:0}
 textarea.pa-in{min-height:98px;resize:vertical;line-height:1.55}
 .pa-in:focus{border-color:#0E7A5F}
-.pa-in[aria-invalid="true"]{border-color:#16456E}
+.pa-in[aria-invalid="true"]{border-color:#D9351F}
 /* Regiones vivas (errores de campo y aviso de copiado). El hueco existe SIEMPRE
    en el DOM, aunque esté vacío: un aria-live que se crea a la vez que su
    contenido no lo anuncia, porque el lector de pantalla necesita estar ya
@@ -47,11 +39,11 @@ textarea.pa-in{min-height:98px;resize:vertical;line-height:1.55}
 .pa-err,.pa-vivo{margin:0}
 .pa-err>.sc-interp,.pa-vivo>.sc-interp{display:block}
 .pa-err>.sc-interp:empty,.pa-vivo>.sc-interp:empty{display:none}
-.pa-err>.sc-interp{font-size:14.5px;line-height:1.5;color:#141414;font-weight:600;border-left:4px solid #16456E;padding:1px 0 1px 11px}
+.pa-err>.sc-interp{font-size:14.5px;line-height:1.5;color:#141414;font-weight:600;border-left:4px solid #D9351F;padding:1px 0 1px 11px}
 .pa-vivo>.sc-interp{font-size:15px;line-height:1.55;color:#141414;border-left:5px solid #0E7A5F;padding:6px 0 6px 14px}
 /* Variante con texto fijo alrededor de la interpolación: ahí el recuadro va en
    el propio párrafo, porque siempre tiene algo que enseñar. */
-.pa-err-fijo{margin:0;font-size:14.5px;line-height:1.5;color:#141414;font-weight:600;border-left:4px solid #16456E;padding:1px 0 1px 11px}
+.pa-err-fijo{margin:0;font-size:14.5px;line-height:1.5;color:#141414;font-weight:600;border-left:4px solid #D9351F;padding:1px 0 1px 11px}
 .pa-err-fijo>.sc-interp{display:inline}
 .pa-set{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;min-width:0}
 .pa-leg{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#403B3A;padding:0;margin:0 0 2px}
@@ -64,7 +56,7 @@ textarea.pa-in{min-height:98px;resize:vertical;line-height:1.55}
 .pa-bt2{font:800 13.5px/1 'Public Sans',sans-serif;background:#fff;color:#0A5C47;border:2px solid #0E7A5F;padding:12px 16px;cursor:pointer;min-height:46px}
 .pa-bt2:hover{background:#EFF4F1}
 .pa-est{margin:0;font-size:15px;line-height:1.55;color:#141414;border-left:5px solid #0E7A5F;padding:6px 0 6px 14px}
-.pa-est-mal{border-left-color:#16456E}
+.pa-est-mal{border-left-color:#D9351F}
 .pa-dat{font:700 15px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;color:#141414;background:#EFF4F1;border:2px solid #D5D0CE;padding:12px 14px;word-break:break-all;user-select:all}
 .pa-nota{font-size:14px;line-height:1.55;color:#403B3A;margin:0}
 /* Trampa para robots. Fuera de la pantalla, fuera del orden de tabulación y
@@ -82,12 +74,12 @@ textarea.pa-in{min-height:98px;resize:vertical;line-height:1.55}
    Todos los valores salen del manual de marca; ninguno introduce un color
    nuevo. Contrastes comprobados sobre blanco: negro #141414 18,4:1 ·
    verde #0E7A5F 5,3:1 · verde oscuro #0A5C47 7,7:1 · gris #403B3A 11,0:1 ·
-   azul marino #16456E 10,0:1. Blanco sobre verde #0E7A5F, 5,3:1. Todos por
+   bermellón #D9351F 4,7:1. Blanco sobre verde #0E7A5F, 5,3:1. Todos por
    encima del 4,5:1 que exige la AA.
 
-   El azul marino aparece solo en las cuñas y en la línea de «borrador»: es lo
+   El bermellón aparece solo en las cuñas y en la línea de «borrador»: es lo
    urgente. Los números de las quince medidas van en verde oscuro a propósito,
-   porque quince cifras marcadas seguidas dejan de señalar nada. */
+   porque quince cifras rojas seguidas dejan de señalar nada. */
 
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -98,7 +90,7 @@ html{scroll-behavior:smooth}
 /* La cuña. Un triángulo hecho con bordes: sin fichero, sin petición y sin
    texto que un lector de pantalla pueda leer quince veces seguidas. En el
    marcado va siempre con aria-hidden. */
-.pa-cuna{display:inline-block;width:0;height:0;border-left:10px solid #16456E;border-top:6.5px solid transparent;border-bottom:6.5px solid transparent;flex:none}
+.pa-cuna{display:inline-block;width:0;height:0;border-left:10px solid #D9351F;border-top:6.5px solid transparent;border-bottom:6.5px solid transparent;flex:none}
 .pa-cuna-s{border-left-width:8px;border-top-width:5px;border-bottom-width:5px}
 
 .pa-pg-cab{max-width:64ch;border-bottom:2px solid #141414;padding-bottom:clamp(26px,3.4vw,36px);margin-bottom:clamp(26px,3.4vw,36px)}
@@ -107,7 +99,7 @@ html{scroll-behavior:smooth}
 .pa-pg-lema{font-family:'Familjen Grotesk',sans-serif;font-size:clamp(20px,2.6vw,30px);font-weight:700;letter-spacing:-.03em;line-height:1.1;margin:14px 0 0;color:#0E7A5F}
 .pa-pg-meta{margin:18px 0 0;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#403B3A;line-height:1.5}
 .pa-pg-meta+.pa-pg-meta{margin-top:4px}
-.pa-pg-version{margin:16px 0 0;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#16456E}
+.pa-pg-version{margin:16px 0 0;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#D9351F}
 .pa-pg-nota{margin:14px 0 0;font-size:14.5px;line-height:1.6;color:#403B3A;max-width:72ch;text-wrap:pretty}
 
 /* Índice de la página. Es la navegación entre ejes que pide el manual: anclas
