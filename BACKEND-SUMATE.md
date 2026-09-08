@@ -129,11 +129,15 @@ ante la AEPD. Hay que confirmarlo con quien lleve lo orgánico antes de publicar
 Variables en `.env.example`. Las obligatorias: `DATABASE_URL`, `ADMIN_TOKEN`,
 `SECRETO_HMAC`, `URL_BASE`, `SMTP_USUARIO`, `SMTP_CLAVE`.
 
-**DNS de `por-aguilas.es`.** Enviando desde el buzón del propio dominio no hay
-que añadir nada: el SPF que ya publica IONOS (`include:_spf-eu.ionos.com`)
-autoriza esos envíos, y el DKIM lo firma el propio proveedor. El DMARC actual es
-`v=DMARC1; p=none;`; conviene añadirle un `rua=mailto:...` y subir a
-`p=quarantine` cuando los informes salgan limpios.
+**DNS de `por-aguilas.es`: no hay que tocarlo.** El dominio no tiene buzón
+propio —`admin@` es una redirección, y una redirección no puede autenticarse en
+un SMTP—, así que se envía desde la propia cuenta de Gmail. El remitente es
+entonces `@gmail.com`, y quien firma es Google: SPF y DKIM alinean con
+`gmail.com` y DMARC pasa sin que el SPF de por-aguilas.es intervenga.
+
+El precio no es técnico sino de imagen: los correos de la candidatura salen
+desde una dirección de Gmail. Con un buzón en el dominio (~1 €/mes) se enviaría
+desde `admin@por-aguilas.es` y `src/config.js` dejaría de avisar.
 
 **Región de Railway:** hay que desplegar en la región europea. La política de
 privacidad afirma que los servidores están en la UE.
