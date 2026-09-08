@@ -1,8 +1,8 @@
 # Por Águilas — Manual de marca y estrategia
 
-*Versión 7 · agosto de 2026 · documento vivo*
+*Versión 8 · septiembre de 2026 · documento vivo*
 
-> **Cambio respecto a la v6:** el sistema pasa a **fondo blanco y letra negra**, con el color reservado para señalar. Y el perfil del peñón se redibuja punto a punto sobre la fotografía.
+> **Cambio respecto a la v7:** el **bermellón sale del sistema**. Se queda dentro del logotipo, en los rayos del sol, y en las piezas lo sustituye el **azul marino**. Además, la palabra **«Águilas» se escribe en turquesa** allá donde aparezca: el nombre del pueblo es lo único que lleva color propio.
 
 ---
 
@@ -12,9 +12,9 @@
 |---|---|---|
 | Arquitectura de marca | **Por Águilas al frente**; IU y PCE como fuerzas impulsoras, declaradas siempre pero en segundo plano | Permeabilidad al votante no militante e independientes. Obliga a que «quiénes somos» sea explícito |
 | Familia visual | **Coaliciones «Por…»** (referencia: Por Andalucía). Nombre apilado, marca gráfica detrás, inclinación de 5° | Nos coloca en la familia de las candidaturas de unidad de la izquierda sin depender de siglas |
-| Sistema cromático | **Fondo blanco, letra negra.** Color solo para señalar: verde lo nuestro, bermellón lo urgente | Máxima legibilidad, coste de impresión mínimo y diferenciación total del PSOE |
+| Sistema cromático | **Fondo blanco, letra negra.** Color solo para señalar: verde lo nuestro, azul marino lo urgente, turquesa el nombre del pueblo | Máxima legibilidad, coste de impresión mínimo y diferenciación total del PSOE |
 | Rival principal | **PSOE** (gobierna el municipio) | El rojo como superficie es suyo. Se lo cedemos y ganamos el verde |
-| Colores vetados | Morado y magenta · verde lima o manzana · azul medio brillante | Evitar las lecturas «Podemos», «Vox» y «PP» |
+| Colores vetados | Morado y magenta · verde lima o manzana · azul medio brillante | Evitar las lecturas «Podemos», «Vox» y «PP». El marino y el turquesa del sistema quedan lejos del azul del PP: uno es casi negro, el otro es cian |
 | Ejes de campaña | Vivienda · Servicios públicos · Modelo de pueblo · Democracia municipal | Cuatro, no diez |
 | Cita electoral | Municipales de Águilas, previsiblemente **domingo 23 de mayo de 2027**. 21 concejales en juego | A confirmar con el real decreto de convocatoria |
 
@@ -78,9 +78,9 @@ El perfil está calcado punto a punto sobre una fotografía del peñón tomada d
 | Franja gruesa superior — el agua | Turquesa | `#1B96AD` |
 | Franja fina inferior — la playa | Tierra | `#B0703C` |
 | «Por» del logotipo | Morado del corazón | `#8229A7` |
-| «Águilas» del logotipo | Verde Águilas | `#0E7A5F` |
+| «Águilas» del logotipo | Turquesa Águilas | `#0B7699` |
 
-> **Regla de contención:** el amarillo, el turquesa y el tierra **viven solo dentro del logotipo**. En carteles, redes, papelería y web manda el sistema: fondo blanco, letra negra, verde y bermellón. Si el amarillo empieza a aparecer como fondo de cartel, el sistema se rompe.
+> **Regla de contención:** el amarillo, el turquesa y el tierra **viven solo dentro del logotipo**. En carteles, redes, papelería y web manda el sistema: fondo blanco, letra negra, verde, azul marino y el turquesa del nombre. Si el amarillo empieza a aparecer como fondo de cartel, el sistema se rompe.
 
 **Versiones (carpeta `logo/`)**
 
@@ -90,13 +90,17 @@ El perfil está calcado punto a punto sobre una fotografía del peñón tomada d
 | `por-aguilas-isotipo.png` | Solo la marca: el triángulo con la ola y el corazón. Avatares, favicon, chapas, sellos. De 24 px para abajo, siempre esta |
 | `por-aguilas-una-tinta.svg` | Blanco sobre fondo oscuro con el peñón calado. Serigrafía barata, sellos, prensa a un color |
 
+> **Pendiente de la v8:** los PNG de la carpeta siguen siendo los de la v7, con el «Águilas» en verde y los rayos bermellones. En la web el nombre va escrito con tipografía, así que ya está en turquesa; los ficheros hay que reexportarlos con el nuevo color del nombre.
+
 **Nunca:** contorno, sombra, degradado ni un color de más. Nunca girar el sol ni cambiarle el número de rayos. Nunca alterar la inclinación de cinco grados.
 
 > **Pendiente:** el sol está dibujado de cero. Cuando tengamos el vectorial del sol oficial de IU-Verdes hay que ajustar número de rayos y proporciones para que se lea como el suyo.
 
 ### La cuña
 
-El símbolo es el sol; el elemento que ordena las piezas es **la cuña bermellón**, un rayo del sol suelto. Corta el pie de la portada, encabeza cada sección y marca cada punto del programa. Junto al «Por», es el único sitio donde aparece el rojo, y por eso se ve. Siempre apuntando a la derecha, nunca girada ni de otro color.
+El símbolo es el sol; el elemento que ordena las piezas es **la cuña azul marino**, un rayo del sol suelto. Corta el pie de la portada, encabeza cada sección y marca cada punto del programa. Siempre apuntando a la derecha, nunca girada ni de otro color.
+
+> **Ojo:** el logotipo conserva sus rayos bermellones. El rojo sigue existiendo, pero solo dentro del sol; fuera de él no aparece en ninguna pieza.
 
 ---
 
@@ -108,23 +112,25 @@ El símbolo es el sol; el elemento que ordena las piezas es **la cuña bermelló
 |---|---|---|
 | **Blanco** | `#FFFFFF` | Fondo por defecto de todo |
 | **Negro** | `#141414` | Tinta de todo el texto, filetes, pie. 15,9:1 sobre blanco |
-| **Verde Águilas** | `#0E7A5F` | Color de marca. Bloques, botones, portada, «Águilas». Verde profundo con tiro a marino, nunca lima. 5,3:1 sobre blanco |
-| **Rojo bermellón** | `#D9351F` | El bermellón del símbolo del PCE. Solo la cuña y lo urgente. Nunca una superficie grande |
+| **Verde Águilas** | `#0E7A5F` | Color de marca. Bloques, botones, portada. Verde profundo con tiro a marino, nunca lima. 5,3:1 sobre blanco |
+| **Azul marino** | `#16456E` | El mar de fondo. Solo la cuña y lo urgente. Nunca una superficie grande. 10,0:1 sobre blanco |
+| **Turquesa Águilas** | `#0B7699` | El agua del logotipo. La palabra «Águilas» allá donde se escriba, y nada más. 5,2:1 sobre blanco |
 | **Morado del corazón** | `#8229A7` | El morado del corazón del isotipo. Solo el «Por» de la marca, en cualquier fondo claro. 7,4:1 sobre blanco |
 | Verde oscuro | `#0A5C47` | Enlaces, etiquetas, fechas |
 | Espuma | `#EFF4F1` | Secciones alternas |
 | Gris filete | `#D5D0CE` | Filetes secundarios |
-| Verde claro / bermellón claro | `#3FCB9E` / `#FF7A63` | Sobre fondo negro, y además el «Águilas» de la marca en cualquier fondo. Ojo: 2,1:1 sobre blanco, por debajo del mínimo de la AA |
+| Verde claro / turquesa claro | `#3FCB9E` / `#42C7DE` | Sobre fondo negro y sobre la foto de portada. Ojo: 2,1:1 y 2,3:1 sobre blanco, por debajo del mínimo de la AA: en claro van las versiones oscuras |
+| Marino claro | `#2F6FA6` | El marino sobre fondo negro, donde el `#16456E` se apagaría |
 
-**Regla de uso.** Fondo blanco y letra negra siempre. El color solo aparece para señalar: **verde** para lo nuestro —los enlaces, los bloques— y **bermellón** para la cuña y lo urgente. La marca «Por Águilas» va aparte, con los colores del logotipo: morado y verde claro. Nada más.
+**Regla de uso.** Fondo blanco y letra negra siempre. El color solo aparece para señalar: **verde** para lo nuestro —los enlaces, los bloques—, **azul marino** para la cuña y lo urgente y **turquesa** para la palabra «Águilas», que es el único sustantivo con color propio y va en turquesa aparezca donde aparezca. La marca «Por Águilas» va aparte, con los colores del logotipo: morado el «Por» y turquesa el «Águilas». Nada más.
 
-**Vetados:** magenta · verde lima o manzana (Vox) · azul medio brillante (PP).
+**Vetados:** magenta · verde lima o manzana (Vox) · azul medio brillante (PP). El marino `#16456E` está a 10:1 de contraste sobre blanco —lee como casi negro— y el turquesa tira a cian: ninguno de los dos se confunde con el azul institucional.
 
 ### Diferenciación frente al PSOE
 
 | Ellos | Nosotros |
 |---|---|
-| Rojo como superficie dominante | Blanco y negro; el verde señala, el bermellón puntúa |
+| Rojo como superficie dominante | Blanco y negro; el verde señala, el marino puntúa y el turquesa nombra al pueblo. En nuestras piezas no hay rojo |
 | Símbolo orgánico y curvo (la rosa) | Sol geométrico con el peñón del pueblo dentro |
 | Siglas en mayúscula por delante del mensaje | El nombre del pueblo por delante de cualquier sigla |
 | Foto con degradado, tono institucional | Bloques planos, filetes duros, cero degradados |
